@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0pb5xegx3un5"]
 
 [ext_resource type="Theme" uid="uid://k1njh8stq8p6" path="res://main_theme.tres" id="1_fhkst"]
-[ext_resource type="Script" path="res://ui_components/slider.gd" id="1_jlpr2"]
+[ext_resource type="Script" path="res://ui_components/control.gd" id="1_n2bej"]
 
 [node name="Slider" type="VBoxContainer"]
 anchors_preset = 15
@@ -10,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-script = ExtResource("1_jlpr2")
+script = ExtResource("1_n2bej")
 
 [node name="Label" type="RichTextLabel" parent="."]
 layout_mode = 2

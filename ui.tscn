@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://drg7aswaqob82"]
+[gd_scene load_steps=4 format=3 uid="uid://drg7aswaqob82"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_5pc7n"]
 [ext_resource type="Theme" uid="uid://k1njh8stq8p6" path="res://main_theme.tres" id="1_x5rvc"]
+[ext_resource type="Script" path="res://ui_components/control.gd" id="3_urq4p"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -45,3 +46,4 @@ theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[center]1. Sine Waves[/center]"
 fit_content = true
+script = ExtResource("3_urq4p")

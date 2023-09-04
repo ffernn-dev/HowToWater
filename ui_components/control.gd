@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends Control
 
 signal value_changed
 @export var id := ""
