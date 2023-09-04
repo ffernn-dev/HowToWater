@@ -21,8 +21,8 @@ corner_detail = 1
 [resource]
 HSlider/styles/slider = SubResource("StyleBoxFlat_cvtdm")
 MarginContainer/constants/margin_left = 32
-MarginContainer/constants/margin_right = 16
+MarginContainer/constants/margin_right = 32
 MarginContainer/constants/margin_top = 16
 Panel/styles/panel = SubResource("StyleBoxFlat_mr6gb")
-RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/font_sizes/normal_font_size = 16
 RichTextLabel/fonts/normal_font = ExtResource("1_giqsm")

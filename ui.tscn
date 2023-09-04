@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://drg7aswaqob82"]
 
+[ext_resource type="Script" path="res://ui.gd" id="1_5pc7n"]
 [ext_resource type="Theme" uid="uid://k1njh8stq8p6" path="res://main_theme.tres" id="1_x5rvc"]
-[ext_resource type="PackedScene" uid="uid://d0pb5xegx3un5" path="res://ui_components/slider.tscn" id="2_q3byl"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -10,14 +10,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5pc7n")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="MainPanel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 447.0
-offset_bottom = 629.0
+offset_right = 407.0
+offset_bottom = 628.0
 theme = ExtResource("1_x5rvc")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="Margin" type="MarginContainer" parent="MainPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,19 +27,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_x5rvc")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+[node name="Scroll" type="ScrollContainer" parent="MainPanel/Margin"]
 layout_mode = 2
+follow_focus = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
+[node name="MainContainer" type="VBoxContainer" parent="MainPanel/Margin/Scroll"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_x5rvc")
+theme_override_constants/separation = 16
 
-[node name="Title" type="RichTextLabel" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 39)
+[node name="Title" type="RichTextLabel" parent="MainPanel/Margin/Scroll/MainContainer"]
 layout_mode = 2
 theme = ExtResource("1_x5rvc")
-text = "1. Sine Waves"
-
-[node name="Slider" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_q3byl")]
-custom_minimum_size = Vector2(2.08165e-12, 59)
-layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]1. Sine Waves[/center]"
+fit_content = true

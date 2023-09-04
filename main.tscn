@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5t02i8xki8st"]
+[gd_scene load_steps=6 format=3 uid="uid://b5t02i8xki8st"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_0o2n4"]
 [ext_resource type="PackedScene" uid="uid://drg7aswaqob82" path="res://ui.tscn" id="1_bb3k4"]
 [ext_resource type="Material" uid="uid://cpv7mj1arpauk" path="res://water.tres" id="1_lfe61"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m4372"]
-material = ExtResource("1_lfe61")
 size = Vector3(10, 0.1, 2.08165e-12)
-subdivide_width = 100
-subdivide_height = 100
+subdivide_width = 300
+subdivide_height = 300
 
 [sub_resource type="Environment" id="Environment_217yj"]
 background_mode = 1
@@ -16,12 +16,14 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_0o2n4")
 
 [node name="UI" parent="." instance=ExtResource("1_bb3k4")]
 
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 5)
 mesh = SubResource("BoxMesh_m4372")
+surface_material_override/0 = ExtResource("1_lfe61")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 8.6)
