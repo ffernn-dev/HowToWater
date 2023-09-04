@@ -15,13 +15,13 @@ corner_radius_bottom_left = 4
 corner_detail = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mr6gb"]
-bg_color = Color(0.14902, 0.137255, 0.227451, 1)
+bg_color = Color(0.0980392, 0.0901961, 0.141176, 1)
 corner_detail = 1
 
 [resource]
 HSlider/styles/slider = SubResource("StyleBoxFlat_cvtdm")
-MarginContainer/constants/margin_left = 32
-MarginContainer/constants/margin_right = 32
+MarginContainer/constants/margin_left = 24
+MarginContainer/constants/margin_right = 24
 MarginContainer/constants/margin_top = 16
 Panel/styles/panel = SubResource("StyleBoxFlat_mr6gb")
 RichTextLabel/font_sizes/normal_font_size = 16

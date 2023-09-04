@@ -4,6 +4,11 @@ var slides = [
 	{
 		"controls": [
 			{
+				"type": "title",
+				"name": "1. Sine Waves",
+				"id": "main_heading",
+			},
+			{
 				"type": "slider",
 				"name": "Amplitude",
 				"id": "amplitude",
