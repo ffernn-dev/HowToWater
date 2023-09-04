@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cpv7mj1arpauk"]
+
+[ext_resource type="Shader" path="res://water.gdshader" id="1_qlw4i"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_qlw4i")
+shader_parameter/amplitude = 1.0
+shader_parameter/frequency = 0.76
+shader_parameter/speed = 2.87

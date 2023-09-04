@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://drg7aswaqob82"]
+
+[ext_resource type="Theme" uid="uid://k1njh8stq8p6" path="res://main_theme.tres" id="1_x5rvc"]
+[ext_resource type="PackedScene" uid="uid://d0pb5xegx3un5" path="res://ui_components/slider.tscn" id="2_q3byl"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 447.0
+offset_bottom = 629.0
+theme = ExtResource("1_x5rvc")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_x5rvc")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="RichTextLabel" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 39)
+layout_mode = 2
+theme = ExtResource("1_x5rvc")
+text = "1. Sine Waves"
+
+[node name="Slider" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_q3byl")]
+custom_minimum_size = Vector2(2.08165e-12, 59)
+layout_mode = 2
