@@ -4,6 +4,7 @@ extends Control
 
 var slider_scene = preload("res://ui_components/slider.tscn")
 var title_scene = preload("res://ui_components/title.tscn")
+var paragraph_scene = preload("res://ui_components/paragraph.tscn")
 
 func delete_children(node):
 	for n in node.get_children():
@@ -40,5 +41,15 @@ func initialise(data: Array) -> Array[Node]:
 			
 			main_container.add_child(title)
 			nodes.append(title)
-	
+		
+		elif item["type"] == "paragraph":
+			var paragraph = paragraph_scene.instantiate()
+			var text = item["name"].replace("/```", "[/bgcolor]").replace("```", "[bgcolor=#6e6a8666]")
+			
+			paragraph.id = item["id"]
+			paragraph.text = text
+			
+			main_container.add_child(paragraph)
+			nodes.append(paragraph)
+			
 	return nodes

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq3k5dt74gq40"]
+
+[ext_resource type="Theme" uid="uid://k1njh8stq8p6" path="res://main_theme.tres" id="1_ghfcr"]
+[ext_resource type="Script" path="res://ui_components/control.gd" id="2_jspgv"]
+
+[node name="Title" type="RichTextLabel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ghfcr")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "title"
+fit_content = true
+script = ExtResource("2_jspgv")

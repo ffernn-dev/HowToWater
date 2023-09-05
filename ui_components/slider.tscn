@@ -22,5 +22,6 @@ fit_content = true
 [node name="Slider" type="HSlider" parent="."]
 layout_mode = 2
 theme = ExtResource("1_fhkst")
+value = 10.0
 
 [connection signal="value_changed" from="Slider" to="." method="_on_slider_value_changed"]

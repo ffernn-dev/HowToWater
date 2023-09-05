@@ -9,6 +9,11 @@ var slides = [
 				"id": "main_heading",
 			},
 			{
+				"type": "paragraph",
+				"name": "This is a sine wave! It is given by the formula ```f(x) = a * sin(x * f + t * s)/```, where [i]a[/i] is amplitude, [i]f[/i] is frequency, [i]t[/i] is time, and [i]s[/i] is speed.",
+				"id": "main_heading",
+			},
+			{
 				"type": "slider",
 				"name": "Amplitude",
 				"id": "amplitude",
