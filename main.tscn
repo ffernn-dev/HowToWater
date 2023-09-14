@@ -5,15 +5,16 @@
 [ext_resource type="Material" uid="uid://cpv7mj1arpauk" path="res://water.tres" id="1_lfe61"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m4372"]
-size = Vector3(10, 0.1, 2.08165e-12)
+size = Vector3(10, 0.1, 10)
 subdivide_width = 300
-subdivide_height = 300
+subdivide_depth = 300
 
 [sub_resource type="Environment" id="Environment_217yj"]
 background_mode = 1
 background_color = Color(0.0980392, 0.0901961, 0.141176, 1)
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.0
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_0o2n4")
@@ -21,13 +22,16 @@ script = ExtResource("1_0o2n4")
 [node name="UI" parent="." instance=ExtResource("1_bb3k4")]
 
 [node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 0)
 mesh = SubResource("BoxMesh_m4372")
 surface_material_override/0 = ExtResource("1_lfe61")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 8.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 3.6)
 size = 5.5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_217yj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.913205, -0.37334, 0.163324, -0.264091, 0.847446, 0.460533, -0.310344, 0.377428, -0.872488, 4.11556, 5.64446, -4.92927)

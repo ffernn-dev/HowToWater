@@ -5,6 +5,13 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_qlw4i")
+shader_parameter/sine1_enable = true
+shader_parameter/sine2_enable = true
 shader_parameter/amplitude = 1.0
 shader_parameter/frequency = 1.0
 shader_parameter/speed = 1.0
+shader_parameter/rotation = 0.0
+shader_parameter/amplitude2 = 1.0
+shader_parameter/frequency2 = 1.0
+shader_parameter/speed2 = 0.0
+shader_parameter/rotation2 = 0.5

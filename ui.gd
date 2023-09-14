@@ -1,6 +1,6 @@
 extends Control
 
-@onready var main_container = $MainPanel/Margin/Scroll/MainContainer
+@onready var main_container = %MainContainer
 
 var slider_scene = preload("res://ui_components/slider.tscn")
 var title_scene = preload("res://ui_components/title.tscn")
