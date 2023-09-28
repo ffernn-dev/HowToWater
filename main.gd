@@ -35,26 +35,28 @@ func _next_slide():
 
 func show_slide(id: int):
 	var slide_data = SlideData.slides[id]
-	
+
 	var shader_flags = slide_data["shader_flags"]
 	for i in shader_flags:
+		if str(shader_flags[i]) == "_def":
+			continue
 		set_shader_value(i, shader_flags[i])
-		
+
 	var control_data = slide_data["controls"]
-	
+
 	var new_controls = ui.initialise(control_data)
 	for node in new_controls:
 		node.value_changed.connect(_on_control_value_changed)
-	
+
 	animate_properties(slide_data)
 
-	
+
 func animate_properties(slide_data):
 	if camera_tween:
 		camera_tween.kill()
 	camera_tween = get_tree().create_tween()
 	camera_tween.set_parallel(true)
-	
+
 	camera_tween.tween_property(camera, "position", slide_data["camera_position"][0], 2)
 	camera_tween.tween_property(camera, "rotation_degrees", slide_data["camera_position"][1], 2)
 	camera_tween.tween_property(water.mesh, "size", slide_data["water_mesh_dimensions"], 2)

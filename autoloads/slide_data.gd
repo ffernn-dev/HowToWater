@@ -2,7 +2,19 @@ extends Node
 
 var slides = [
 	{
-		"shader_flags": {"sine1_enable": true, "sine2_enable": false},
+		"shader": "sum_of_sines",
+		"shader_flags": {
+			"sine1_enable": true,
+			"sine2_enable": false,
+			"amplitude1": "_def",
+			"frequency1": "_def",
+			"speed1": "_def",
+			"rotation1": "_def",
+			"amplitude2": "_def",
+			"frequency2": "_def",
+			"speed2": "_def",
+			"rotation2": "_def"
+		},
 		"camera_position": [Vector3(0, 0, 3.6), Vector3(0, 0, 0)],
 		"water_mesh_dimensions": Vector3(10, 0.1, 0),
 		"global_light": 1.0,
@@ -20,7 +32,7 @@ var slides = [
 			{
 				"type": "slider",
 				"name": "Amplitude",
-				"id": "amplitude",
+				"id": "amplitude1",
 				"min": 0.0,
 				"max": 3.0,
 				"default": 1.0,
@@ -28,7 +40,7 @@ var slides = [
 			{
 				"type": "slider",
 				"name": "Frequency",
-				"id": "frequency",
+				"id": "frequency1",
 				"min": 0.0,
 				"max": 6.5,
 				"default": 1.0,
@@ -36,7 +48,7 @@ var slides = [
 			{
 				"type": "slider",
 				"name": "Speed",
-				"id": "speed",
+				"id": "speed1",
 				"min": -20.0,
 				"max": 20.0,
 				"default": 1.0,
@@ -44,7 +56,19 @@ var slides = [
 		]
 	},
 	{
-		"shader_flags": {"sine1_enable": true, "sine2_enable": true},
+		"shader": "sum_of_sines",
+		"shader_flags": {
+			"sine1_enable": true,
+			"sine2_enable": true,
+			"amplitude1": "_def",
+			"frequency1": "_def",
+			"speed1": "_def",
+			"rotation1": "_def",
+			"amplitude2": "_def",
+			"frequency2": "_def",
+			"speed2": "_def",
+			"rotation2": "_def"
+		},
 		"camera_position": [Vector3(0, 0, 3.6), Vector3(0, 0, 0)],
 		"water_mesh_dimensions": Vector3(10, 0.1, 0),
 		"global_light": 1.0,
@@ -62,7 +86,7 @@ var slides = [
 			{
 				"type": "slider",
 				"name": "Amplitude 1",
-				"id": "amplitude",
+				"id": "amplitude1",
 				"min": 0.0,
 				"max": 3.0,
 				"default": 1.0,
@@ -70,7 +94,7 @@ var slides = [
 			{
 				"type": "slider",
 				"name": "Frequency 1",
-				"id": "frequency",
+				"id": "frequency1",
 				"min": 0.0,
 				"max": 6.5,
 				"default": 1.0,
@@ -78,7 +102,7 @@ var slides = [
 			{
 				"type": "slider",
 				"name": "Speed 1",
-				"id": "speed",
+				"id": "speed1",
 				"min": -20.0,
 				"max": 20.0,
 				"default": 1.0,
@@ -110,7 +134,19 @@ var slides = [
 		]
 	},
 	{
-		"shader_flags": {"sine1_enable": true, "sine2_enable": true},
+		"shader": "sum_of_sines",
+		"shader_flags": {
+			"sine1_enable": true,
+			"sine2_enable": true,
+			"amplitude1": 0.45,
+			"frequency1": 0.84,
+			"speed1": 1,
+			"rotation1": 0,
+			"amplitude2": 0.09,
+			"frequency2": 3.66,
+			"speed2": 9.94,
+			"rotation2": 0
+		},
 		"camera_position": [Vector3(-3.388, 4.544, 7.124), Vector3(-44, -29.5, 0)],
 		"water_mesh_dimensions": Vector3(10, 0.1, 10),
 		"global_light": 0.0,
@@ -127,66 +163,18 @@ var slides = [
 			},
 			{
 				"type": "slider",
-				"name": "Amplitude 1",
-				"id": "amplitude",
-				"min": 0.0,
-				"max": 3.0,
-				"default": 1.0,
-			},
-			{
-				"type": "slider",
-				"name": "Frequency 1",
-				"id": "frequency",
-				"min": 0.0,
-				"max": 6.5,
-				"default": 1.0,
-			},
-			{
-				"type": "slider",
-				"name": "Speed 1",
-				"id": "speed",
-				"min": -20.0,
-				"max": 20.0,
-				"default": 1.0,
-			},
-			{
-				"type": "slider",
 				"name": "Rotate 1",
-				"id": "rotate",
-				"min": -20.0,
-				"max": 20.0,
-				"default": 1.0,
-			},
-			{
-				"type": "slider",
-				"name": "Amplitude 2",
-				"id": "amplitude2",
+				"id": "rotation1",
 				"min": 0.0,
-				"max": 3.0,
-				"default": 1.0,
-			},
-			{
-				"type": "slider",
-				"name": "Frequency 2",
-				"id": "frequency2",
-				"min": 0.0,
-				"max": 6.5,
-				"default": 1.0,
-			},
-			{
-				"type": "slider",
-				"name": "Speed 2",
-				"id": "speed2",
-				"min": -20.0,
-				"max": 20.0,
+				"max": 4.0,
 				"default": 1.0,
 			},
 			{
 				"type": "slider",
 				"name": "Rotate 2",
-				"id": "rotate2",
-				"min": -20.0,
-				"max": 20.0,
+				"id": "rotation2",
+				"min": 0.0,
+				"max": 4.0,
 				"default": 1.0,
 			},
 		]
