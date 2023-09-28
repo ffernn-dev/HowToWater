@@ -7,4 +7,5 @@ render_priority = 0
 shader = ExtResource("1_4kr5t")
 shader_parameter/drag_factor = 0.38
 shader_parameter/displace_iterations = 34
-shader_parameter/normal_iterations = 2
+shader_parameter/normal_iterations = 34
+shader_parameter/good_normals = true
