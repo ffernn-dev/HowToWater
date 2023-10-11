@@ -5,7 +5,7 @@ extends Node3D
 @onready var camera = $Camera3D
 @onready var world_environment = $WorldEnvironment
 
-@onready var water_shader = water.get_surface_override_material(0)
+@onready var water_shader: ShaderMaterial = water.get_surface_override_material(0)
 
 @onready var camera_tween = get_tree().create_tween()
 
@@ -35,7 +35,8 @@ func _next_slide():
 
 func show_slide(id: int):
 	var slide_data = SlideData.slides[id]
-
+	water_shader.shader = load("res://shaders/" + slide_data["shader"] + ".gdshader")
+	
 	var shader_flags = slide_data["shader_flags"]
 	for i in shader_flags:
 		if str(shader_flags[i]) == "_def":
@@ -59,5 +60,5 @@ func animate_properties(slide_data):
 
 	camera_tween.tween_property(camera, "position", slide_data["camera_position"][0], 2)
 	camera_tween.tween_property(camera, "rotation_degrees", slide_data["camera_position"][1], 2)
-	camera_tween.tween_property(water.mesh, "size", slide_data["water_mesh_dimensions"], 2)
+	camera_tween.tween_property(water, "scale", slide_data["water_mesh_scale"], 2)
 	camera_tween.tween_property(world_environment.environment, "ambient_light_energy", slide_data["global_light"], 2)

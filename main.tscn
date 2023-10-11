@@ -1,45 +1,45 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5t02i8xki8st"]
+[gd_scene load_steps=13 format=3 uid="uid://b5t02i8xki8st"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_0o2n4"]
 [ext_resource type="PackedScene" uid="uid://drg7aswaqob82" path="res://ui.tscn" id="1_bb3k4"]
-[ext_resource type="Material" uid="uid://cpv7mj1arpauk" path="res://water.tres" id="1_lfe61"]
-[ext_resource type="Shader" path="res://shaders/sum_of_sines.gdshader" id="3_4372a"]
+[ext_resource type="Shader" path="res://shaders/fbm.gdshader" id="3_7nryt"]
 [ext_resource type="Texture2D" uid="uid://djiegt1ktsks1" path="res://EveningSkyHDRI021A_4K-HDR.exr" id="5_6s064"]
 [ext_resource type="Shader" path="res://normal_view.gdshader" id="6_euc08"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m4372"]
+lightmap_size_hint = Vector2i(104, 57)
 size = Vector3(10, 0.1, 10)
 subdivide_width = 500
 subdivide_depth = 500
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eq702"]
 render_priority = 0
-shader = ExtResource("3_4372a")
-shader_parameter/sine1_enable = true
-shader_parameter/sine2_enable = true
-shader_parameter/amplitude1 = 1.0
-shader_parameter/frequency1 = 1.0
-shader_parameter/speed1 = 1.0
-shader_parameter/rotation1 = 0.0
-shader_parameter/amplitude2 = 2.08165e-12
-shader_parameter/frequency2 = 1.0
-shader_parameter/speed2 = 1.0
-shader_parameter/rotation2 = 0.0
+shader = ExtResource("3_7nryt")
+shader_parameter/drag_factor = 0.38
+shader_parameter/displace_iterations = 34
+shader_parameter/enable_fresnel = true
+shader_parameter/low_roughness = true
+shader_parameter/enable_rim = true
+shader_parameter/exponential_waves = true
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bmovj"]
 panorama = ExtResource("5_6s064")
 
-[sub_resource type="Sky" id="Sky_hblsg"]
+[sub_resource type="Sky" id="Sky_h526j"]
 sky_material = SubResource("PanoramaSkyMaterial_bmovj")
+radiance_size = 5
 
 [sub_resource type="Environment" id="Environment_217yj"]
 background_mode = 2
 background_color = Color(0.0980392, 0.0901961, 0.141176, 1)
-sky = SubResource("Sky_hblsg")
+sky = SubResource("Sky_h526j")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.0
-ssr_enabled = true
+tonemap_mode = 2
+tonemap_exposure = 0.84
+volumetric_fog_enabled = true
+volumetric_fog_sky_affect = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4s45a"]
 render_priority = 0
@@ -58,14 +58,8 @@ script = ExtResource("1_0o2n4")
 
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 0)
-visible = false
 mesh = SubResource("BoxMesh_m4372")
 surface_material_override/0 = SubResource("ShaderMaterial_eq702")
-
-[node name="WaterFBM" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 0)
-mesh = SubResource("BoxMesh_m4372")
-surface_material_override/0 = ExtResource("1_lfe61")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 3.6)
@@ -76,14 +70,7 @@ environment = SubResource("Environment_217yj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.894154, 0.374707, 0.245118, -1.45429e-09, -0.547432, 0.83685, 0.447759, -0.748273, -0.489489, 4.11556, 5.64446, -4.92927)
-visible = false
 light_energy = 0.5
-
-[node name="DirectionalLightFBM" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 0, 5.95144, 16.4584)
-visible = false
-light_color = Color(0.980392, 0.894118, 0.635294, 1)
-light_energy = 0.223
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.42869, 0)

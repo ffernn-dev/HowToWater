@@ -6,6 +6,7 @@ var slides = [
 		"shader_flags": {
 			"sine1_enable": true,
 			"sine2_enable": false,
+			"sine3_enable": false,
 			"amplitude1": "_def",
 			"frequency1": "_def",
 			"speed1": "_def",
@@ -16,7 +17,7 @@ var slides = [
 			"rotation2": "_def"
 		},
 		"camera_position": [Vector3(0, 0, 3.6), Vector3(0, 0, 0)],
-		"water_mesh_dimensions": Vector3(10, 0.1, 0),
+		"water_mesh_scale": Vector3(1, 1, 0),
 		"global_light": 1.0,
 		"controls": [
 			{
@@ -60,6 +61,7 @@ var slides = [
 		"shader_flags": {
 			"sine1_enable": true,
 			"sine2_enable": true,
+			"sine3_enable": false,
 			"amplitude1": "_def",
 			"frequency1": "_def",
 			"speed1": "_def",
@@ -70,12 +72,12 @@ var slides = [
 			"rotation2": "_def"
 		},
 		"camera_position": [Vector3(0, 0, 3.6), Vector3(0, 0, 0)],
-		"water_mesh_dimensions": Vector3(10, 0.1, 0),
+		"water_mesh_scale": Vector3(1, 1, 0),
 		"global_light": 1.0,
 		"controls": [
 			{
 				"type": "title",
-				"name": "1.1. Multiple Sines",
+				"name": "2. Multiple Sines",
 				"id": "main_heading",
 			},
 			{
@@ -138,6 +140,7 @@ var slides = [
 		"shader_flags": {
 			"sine1_enable": true,
 			"sine2_enable": true,
+			"sine3_enable": true,
 			"amplitude1": 0.45,
 			"frequency1": 0.84,
 			"speed1": 1,
@@ -145,20 +148,20 @@ var slides = [
 			"amplitude2": 0.09,
 			"frequency2": 3.66,
 			"speed2": 9.94,
-			"rotation2": 0
+			"rotation2": 0,
 		},
 		"camera_position": [Vector3(-3.388, 4.544, 7.124), Vector3(-44, -29.5, 0)],
-		"water_mesh_dimensions": Vector3(10, 0.1, 10),
+		"water_mesh_scale": Vector3(1, 1, 1),
 		"global_light": 0.0,
 		"controls": [
 			{
 				"type": "title",
-				"name": "1.2. Sines in 3D",
+				"name": "3. Sines in 3D",
 				"id": "main_heading",
 			},
 			{
 				"type": "paragraph",
-				"name": "If we take these sine waves and apply them to a plane in 3D, we have the beginnings of a water renderer. Try rotating the movement direction of each wave.",
+				"name": "We can take these sine waves and use them to push a surface up, mimicking the way waves look in an ocean. Try rotating the movement direction of each wave.",
 				"id": "main_heading",
 			},
 			{
@@ -177,6 +180,138 @@ var slides = [
 				"max": 4.0,
 				"default": 1.0,
 			},
+			{
+				"type": "slider",
+				"name": "Rotate 3",
+				"id": "rotation3",
+				"min": 0.0,
+				"max": 4.0,
+				"default": 1.0,
+			},
 		]
-	}
+	},
+	{
+		"shader": "fbm",
+		"shader_flags": {
+			"drag_factor": 0.0,
+			"displace_iterations": 1,
+			"enable_fresnel": false,
+			"low_roughness": false,
+			"enable_rim": false,
+			"exponential_waves": false,
+		},
+		"camera_position": [Vector3(-3.388, 4.544, 7.124), Vector3(-44, -29.5, 0)],
+		"water_mesh_scale": Vector3(1, 1, 1),
+		"global_light": 0.0,
+		"controls": [
+			{
+				"type": "title",
+				"name": "4. Many sines",
+				"id": "main_heading",
+			},
+			{
+				"type": "paragraph",
+				"name": "As we add more and more of these waves with random directions, and make each wave higher frequency than the last...",
+				"id": "main_heading",
+			},
+			{
+				"type": "slider",
+				"name": "Number of sine waves",
+				"id": "displace_iterations",
+				"min": 0.0,
+				"max": 34.0,
+				"default": 1.0,
+			},
+			{
+				"type": "paragraph",
+				"name": "We begin to simulate all the little surface details, building up to a fairly convincing ocean surface at 34 sine waves",
+				"id": "main_heading",
+			},
+		]
+	},
+	{
+		"shader": "fbm",
+		"shader_flags": {
+			"drag_factor": 0.0,
+			"displace_iterations": "_def",
+			"enable_fresnel": false,
+			"low_roughness": false,
+			"enable_rim": false,
+			"exponential_waves": false,
+		},
+		"camera_position": [Vector3(-3.388, 4.544, 7.124), Vector3(-44, -29.5, 0)],
+		"water_mesh_scale": Vector3(1, 1, 1),
+		"global_light": 0.0,
+		"controls": [
+			{
+				"type": "title",
+				"name": "5. Waves drag waves",
+				"id": "main_heading",
+			},
+			{
+				"type": "paragraph",
+				"name": "We can use the derivative of each wave to \"push\" the next wave around, making it look more like a swell interacting with itself.",
+				"id": "main_heading",
+			},
+			{
+				"type": "slider",
+				"name": "Number of sine waves",
+				"id": "displace_iterations",
+				"min": 0.0,
+				"max": 34.0,
+				"default": 1.0,
+			},
+			{
+				"type": "slider",
+				"name": "\"Drag\" Factor",
+				"id": "drag_factor",
+				"min": 0.0,
+				"max": 1.0,
+				"default": 0.0,
+			},
+			{
+				"type": "paragraph",
+				"name": "Another way to improve realism is to make the waves steeper/sharper. This can be done by applying the exponential funcion ```eⁿ/``` to the sine waves. Try setting the number of waves to 1 to see the effect better.",
+				"id": "main_heading",
+			},
+			{
+				"type": "checkbox",
+				"name": "Enable exponential waves",
+				"id": "exponential_waves",
+				"default": false,
+			}
+		]
+	},
+	{
+		"shader": "fbm",
+		"shader_flags": {
+			"drag_factor": 0.38,
+			"displace_iterations": 34,
+			"enable_fresnel": false,
+			"low_roughness": false,
+			"enable_rim": false,
+			"exponential_waves": false,
+		},
+		"camera_position": [Vector3(-3.388, 4.544, 7.124), Vector3(-44, -29.5, 0)],
+		"water_mesh_scale": Vector3(1, 1, 1),
+		"global_light": 0.0,
+		"controls": [
+			{
+				"type": "title",
+				"name": "6. Light interactions",
+				"id": "main_heading",
+			},
+			{
+				"type": "paragraph",
+				"name": "At the moment our water is just a matte surface. To make it reflective like water, we can turn down the roughness value, and the rendering engine handles reflections for us.",
+				"id": "main_heading",
+			},
+			{
+				"type": "checkbox",
+				"name": "Low roughness",
+				"id": "low_roughness",
+				"default": false,
+			},
+		]
+	},
 ]

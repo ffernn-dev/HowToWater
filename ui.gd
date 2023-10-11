@@ -5,6 +5,7 @@ extends Control
 var slider_scene = preload("res://ui_components/slider.tscn")
 var title_scene = preload("res://ui_components/title.tscn")
 var paragraph_scene = preload("res://ui_components/paragraph.tscn")
+var checkbox_scene = preload("res://ui_components/checkbox.tscn")
 
 func delete_children(node):
 	for n in node.get_children():
@@ -27,11 +28,22 @@ func initialise(data: Array) -> Array[Node]:
 		
 			slider_node.min_value = item["min"]
 			slider_node.max_value = item["max"]
-			slider_node.step = abs(item["max"] - item["min"]) / 100
+			slider_node.step = abs(item["max"] - item["min"]) / 500
 			slider_node.value = item["default"]
 			
 			main_container.add_child(slider)
 			nodes.append(slider)
+		
+		elif item["type"] == "checkbox":
+			var checkbox = checkbox_scene.instantiate()
+			var checkbox_node: CheckBox = checkbox.get_node("CheckBox")
+			
+			checkbox_node.text = item["name"]
+			checkbox.id = item["id"]
+			checkbox_node.button_pressed = item["default"]
+			
+			main_container.add_child(checkbox)
+			nodes.append(checkbox)
 		
 		elif item["type"] == "title":
 			var title = title_scene.instantiate()

@@ -1,7 +1,9 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://k1njh8stq8p6"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://k1njh8stq8p6"]
 
 [ext_resource type="FontFile" uid="uid://cxh6gef6o5tkb" path="res://ui_components/Vegur-Regular.otf" id="1_giqsm"]
 [ext_resource type="Texture2D" uid="uid://cp10nv30erh7y" path="res://ui_components/grabber.png" id="1_gmrut"]
+[ext_resource type="Texture2D" uid="uid://44hejlt01lue" path="res://ui_components/checkbox_checked.png" id="1_ux088"]
+[ext_resource type="Texture2D" uid="uid://d1rs8p3d20aso" path="res://ui_components/checkbox-unchecked.png" id="2_klan4"]
 [ext_resource type="Texture2D" uid="uid://brjgkqlmh5hk7" path="res://ui_components/grabber-disabled.png" id="2_symo0"]
 [ext_resource type="Texture2D" uid="uid://deous6srwp3gh" path="res://ui_components/grabber-highlight.png" id="3_if4v1"]
 
@@ -28,6 +30,8 @@ bg_color = Color(0.121569, 0.113725, 0.180392, 1)
 corner_detail = 1
 
 [resource]
+CheckBox/icons/checked = ExtResource("1_ux088")
+CheckBox/icons/unchecked = ExtResource("2_klan4")
 HSlider/icons/grabber = ExtResource("1_gmrut")
 HSlider/icons/grabber_disabled = ExtResource("2_symo0")
 HSlider/icons/grabber_highlight = ExtResource("3_if4v1")
