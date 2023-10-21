@@ -4,6 +4,7 @@ extends Node3D
 @onready var water = $Water
 @onready var camera = $Camera3D
 @onready var world_environment = $WorldEnvironment
+@onready var light = $DirectionalLight3D
 
 @onready var water_shader: ShaderMaterial = water.get_surface_override_material(0)
 
@@ -62,3 +63,4 @@ func animate_properties(slide_data):
 	camera_tween.tween_property(camera, "rotation_degrees", slide_data["camera_position"][1], 2)
 	camera_tween.tween_property(water, "scale", slide_data["water_mesh_scale"], 2)
 	camera_tween.tween_property(world_environment.environment, "ambient_light_energy", slide_data["global_light"], 2)
+	camera_tween.tween_property(light, "light_energy", slide_data["light"], 2)

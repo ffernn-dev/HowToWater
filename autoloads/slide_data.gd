@@ -19,6 +19,7 @@ var slides = [
 		"camera_position": [Vector3(0, 0, 3.6), Vector3(0, 0, 0)],
 		"water_mesh_scale": Vector3(1, 1, 0),
 		"global_light": 1.0,
+		"light": 0.0,
 		"controls": [
 			{
 				"type": "title",
@@ -36,7 +37,7 @@ var slides = [
 				"id": "amplitude1",
 				"min": 0.0,
 				"max": 3.0,
-				"default": 1.0,
+				"default": 0.5,
 			},
 			{
 				"type": "slider",
@@ -74,6 +75,7 @@ var slides = [
 		"camera_position": [Vector3(0, 0, 3.6), Vector3(0, 0, 0)],
 		"water_mesh_scale": Vector3(1, 1, 0),
 		"global_light": 1.0,
+		"light": 0.5,
 		"controls": [
 			{
 				"type": "title",
@@ -90,8 +92,8 @@ var slides = [
 				"name": "Amplitude 1",
 				"id": "amplitude1",
 				"min": 0.0,
-				"max": 3.0,
-				"default": 1.0,
+				"max": 1.5,
+				"default": 0.25,
 			},
 			{
 				"type": "slider",
@@ -114,8 +116,8 @@ var slides = [
 				"name": "Amplitude 2",
 				"id": "amplitude2",
 				"min": 0.0,
-				"max": 3.0,
-				"default": 1.0,
+				"max": 1.5,
+				"default": 0.25,
 			},
 			{
 				"type": "slider",
@@ -141,18 +143,19 @@ var slides = [
 			"sine1_enable": true,
 			"sine2_enable": true,
 			"sine3_enable": true,
-			"amplitude1": 0.45,
+			"amplitude1": 0.2,
 			"frequency1": 0.84,
 			"speed1": 1,
 			"rotation1": 0,
-			"amplitude2": 0.09,
-			"frequency2": 3.66,
+			"amplitude2": 0.06,
+			"frequency2": 1.66,
 			"speed2": 9.94,
 			"rotation2": 0,
 		},
 		"camera_position": [Vector3(-3.388, 4.544, 7.124), Vector3(-44, -29.5, 0)],
 		"water_mesh_scale": Vector3(1, 1, 1),
 		"global_light": 0.0,
+		"light": 0.5,
 		"controls": [
 			{
 				"type": "title",
@@ -203,6 +206,7 @@ var slides = [
 		"camera_position": [Vector3(-3.388, 4.544, 7.124), Vector3(-44, -29.5, 0)],
 		"water_mesh_scale": Vector3(1, 1, 1),
 		"global_light": 0.0,
+		"light": 0.5,
 		"controls": [
 			{
 				"type": "title",
@@ -233,15 +237,71 @@ var slides = [
 		"shader": "fbm",
 		"shader_flags": {
 			"drag_factor": 0.0,
-			"displace_iterations": "_def",
+			"displace_iterations": 34,
 			"enable_fresnel": false,
 			"low_roughness": false,
 			"enable_rim": false,
 			"exponential_waves": false,
 		},
-		"camera_position": [Vector3(-3.388, 4.544, 7.124), Vector3(-44, -29.5, 0)],
+		"camera_position": [Vector3(2.554, 1.45, -6.675), Vector3(0, 162.1, 0)],
 		"water_mesh_scale": Vector3(1, 1, 1),
 		"global_light": 0.0,
+		"light": 0.0,
+		"controls": [
+			{
+				"type": "title",
+				"name": "6. Light interactions",
+				"id": "main_heading",
+			},
+			{
+				"type": "paragraph",
+				"name": "At the moment our water is just a matte surface. I've turned off the harsh light I was using to visualise everything up until now, so now all the light comes from this environment texture. To make it reflective like water, we can turn down the roughness value, and the game engine's renderer handles reflections for us.",
+				"id": "main_heading",
+			},
+			{
+				"type": "checkbox",
+				"name": "Low roughness",
+				"id": "low_roughness",
+				"default": false,
+			},
+			{
+				"type": "paragraph",
+				"name": "The fresnel (pronounced fernel) effect says that when surfaces are viewed at glancing angles they become more reflective. The law applies of most physical materials, including water: if you look directly into it down you can see through it, but an ocean viewed from the beach mostly reflects the sky.",
+				"id": "main_heading",
+			},
+			{
+				"type": "checkbox",
+				"name": "Fresnel reflections",
+				"id": "enable_fresnel",
+				"default": false,
+			},
+			{
+				"type": "paragraph",
+				"name": "We can also turn on rim lighting which increases the light interaction on the edges of a model, emulating tiny surface details.",
+				"id": "main_heading",
+			},
+			{
+				"type": "checkbox",
+				"name": "Rim lighting",
+				"id": "enable_rim",
+				"default": false,
+			}
+		]
+	},
+	{
+		"shader": "fbm",
+		"shader_flags": {
+			"drag_factor": 0.0,
+			"displace_iterations": "_def",
+			"enable_fresnel": true,
+			"low_roughness": true,
+			"enable_rim": true,
+			"exponential_waves": false,
+		},
+		"camera_position": [Vector3(2.554, 1.45, -6.675), Vector3(0, 162.1, 0)],
+		"water_mesh_scale": Vector3(1, 1, 1),
+		"global_light": 0.0,
+		"light": 0.0,
 		"controls": [
 			{
 				"type": "title",
@@ -280,38 +340,6 @@ var slides = [
 				"id": "exponential_waves",
 				"default": false,
 			}
-		]
-	},
-	{
-		"shader": "fbm",
-		"shader_flags": {
-			"drag_factor": 0.38,
-			"displace_iterations": 34,
-			"enable_fresnel": false,
-			"low_roughness": false,
-			"enable_rim": false,
-			"exponential_waves": false,
-		},
-		"camera_position": [Vector3(-3.388, 4.544, 7.124), Vector3(-44, -29.5, 0)],
-		"water_mesh_scale": Vector3(1, 1, 1),
-		"global_light": 0.0,
-		"controls": [
-			{
-				"type": "title",
-				"name": "6. Light interactions",
-				"id": "main_heading",
-			},
-			{
-				"type": "paragraph",
-				"name": "At the moment our water is just a matte surface. To make it reflective like water, we can turn down the roughness value, and the rendering engine handles reflections for us.",
-				"id": "main_heading",
-			},
-			{
-				"type": "checkbox",
-				"name": "Low roughness",
-				"id": "low_roughness",
-				"default": false,
-			},
 		]
 	},
 ]
