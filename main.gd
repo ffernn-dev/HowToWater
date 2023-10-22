@@ -35,6 +35,13 @@ func _next_slide():
 
 
 func show_slide(id: int):
+	if id == 0:
+		ui.hide_previous()
+	elif id == len(SlideData.slides) - 1:
+		ui.hide_next()
+	else:
+		ui.hide_none()
+
 	var slide_data = SlideData.slides[id]
 	water_shader.shader = load("res://shaders/" + slide_data["shader"] + ".gdshader")
 	

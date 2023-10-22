@@ -24,5 +24,6 @@ layout_mode = 2
 theme = ExtResource("1_fhkst")
 step = 0.1
 value = 10.0
+scrollable = false
 
 [connection signal="value_changed" from="Slider" to="." method="_on_slider_value_changed"]

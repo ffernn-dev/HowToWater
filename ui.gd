@@ -1,6 +1,8 @@
 extends Control
 
 @onready var main_container = %MainContainer
+@onready var previous_button = %Previous
+@onready var next_button = %Next
 
 var slider_scene = preload("res://ui_components/slider.tscn")
 var title_scene = preload("res://ui_components/title.tscn")
@@ -11,6 +13,18 @@ func delete_children(node):
 	for n in node.get_children():
 		node.remove_child(n)
 		n.queue_free()
+
+func hide_previous():
+	previous_button.disabled = true
+	next_button.disabled = false
+
+func hide_next():
+	next_button.disabled = true
+	previous_button.disabled = false
+
+func hide_none():
+	previous_button.disabled = false
+	next_button.disabled = false
 
 
 func initialise(data: Array) -> Array[Node]:
